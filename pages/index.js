@@ -43,7 +43,7 @@ function Titulo(props) {
           font-size: 24px;
           font-weight: 600;
         }
-      `}</style>
+      `}</style>     
     </>
   );
 }
@@ -62,7 +62,7 @@ function Titulo(props) {
 // export default HomePage
 
 export default function PaginaInicial() {
-  const username = "peas";
+  const username = "andrelumertz";
 
   return (
     <>
@@ -72,9 +72,9 @@ export default function PaginaInicial() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: appConfig.theme.colors.primary[500],
+          backgroundColor: appConfig.theme.colors.primary[""],
           backgroundImage:
-            "url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)",
+            "url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/i-turn-coffee-into-code-plaque-1536x864.jpg)",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundBlendMode: "multiply",
