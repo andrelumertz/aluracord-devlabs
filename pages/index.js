@@ -1,36 +1,8 @@
 import { Box, Button, Text, TextField, Image } from "@skynexui/components";
+import { useRouter } from "next/router" // Roteamneto das paginas do react 
 import appConfig from "../config.json";
+import React from 'react';
 
-function GlobalStyle() {
-  return (
-    <style global jsx>{`
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        list-style: none;
-      }
-      body {
-        font-family: "Open Sans", sans-serif;
-      }
-      /* App fit Height */
-      html,
-      body,
-      #__next {
-        min-height: 100vh;
-        display: flex;
-        flex: 1;
-      }
-      #__next {
-        flex: 1;
-      }
-      #__next > * {
-        flex: 1;
-      }
-      /* ./App fit Height */
-    `}</style>
-  );
-}
 
 function Titulo(props) {
   const Tag = props.tag || "h1";
@@ -62,11 +34,16 @@ function Titulo(props) {
 // export default HomePage
 
 export default function PaginaInicial() {
-  const username = "andrelumertz";
-
+  //const username = "andrelumertz";
+  const [username, setUsername] = React.useState('');  //Fazendo uso do Hocks do React para criar um estado para o username do usuario e setar o valor do username no estado do username do usuario  
+  const [password, setPassword] = React.useState('');  //Fazendo uso do Hocks do React para criar um estado para o password do usuario e setar o valor do password no estado do password do usuario
+  const [error, setError] = React.useState('');  //Fazendo uso do Hocks do React para criar um estado para o erro e setar o valor do erro no estado do erro do usuario
+  const roteamneto = useRouter(); // Roteamneto das paginas do react
+  
+  
   return (
     <>
-      <GlobalStyle />
+      
       <Box
         styleSheet={{
           display: "flex",
@@ -101,6 +78,14 @@ export default function PaginaInicial() {
           {/* Formulário */}
           <Box
             as="form"
+            onSubmit={function(e) {  //Fazendo uso do Hocks do React para criar um evento para o formulário
+              e.preventDefault();
+              console.log("Form submetido");
+              roteamneto.push("/chat"); // Roteamento das paginas do react
+
+
+            }} 
+              
             styleSheet={{
               display: "flex",
               flexDirection: "column",
@@ -123,6 +108,15 @@ export default function PaginaInicial() {
             </Text>
 
             <TextField
+            value={username} 
+            onChange={function(event) {
+              console.log(event.target.value)
+              //  Onde tá o valor ?
+              const valor = event.target.value
+              // Trocar o valor da variavel
+              // atraves do React e avise quem precisa ser atualizar 
+              setUsername(valor); 
+            }}
               fullWidth
               textFieldColors={{
                 neutral: {
